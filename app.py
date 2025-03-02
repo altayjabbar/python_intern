@@ -1,42 +1,42 @@
+# tofo list
 class Task:
     def __init__(self, description):
         self.description = description
-        self.completed = False  
+        self.completed = False
 
     def task_completed(self):
-        self.completed = True  
+        self.completed = True
 
     def __str__(self):
         status = "++++++" if self.completed else "------"
-        return f"{self.description} - {status}"
+        return f"{self.description} === {status}"
 
 
-class ToDoList:
+class TodoList:
     def __init__(self):
-        self.tasks = []  
+        self.tasks = []
 
     def add_task(self, description):
-        task = Task(description)  
+        task = Task(description)
         self.tasks.append(task)
         print("Task added successfully!")
 
     def complete_task(self, index):
-        if 0 <= index < len(self.tasks):
+        if 0 < index < len(self.tasks):
             self.tasks[index].task_completed()
-            print("Task  completed!")
+            print("Task completed!")
         else:
-            print("Error!!!")
+            print("Please choose correct index number")
 
     def show_tasks(self):
         if not self.tasks:
-            print("No tasks.")
+            print("No Task")
         else:
             for i, task in enumerate(self.tasks, start=1):
-                print(f"{i}. {task}") 
+                f"{i}. {task}"
 
 
-
-todo_list = ToDoList()
+todo_list = TodoList()
 
 while True:
     print("To-Do List")
